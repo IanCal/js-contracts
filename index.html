@@ -8,13 +8,12 @@ var classDef = {
     internalVal : 100,
 
     getAtIndex : function(arr, index) {
-        console.log("Internal value : " + this.internalVal);
         return arr[index];
     }
 
 }
 classDef.getAtIndex.prototype.precondition = function(arr, index) {
-    return arr.length >= index;
+    return arr.length > index;
 }
 
 classDef.getAtIndex.prototype.postcondition = function(arr, index, result) {
