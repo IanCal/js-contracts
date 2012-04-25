@@ -1,0 +1,42 @@
+<html>
+<head>
+<script type='text/javascript' language='javascript' src="class.js"></script>
+<script type='text/javascript' language='javascript'>
+
+var classDef = {
+
+    internalVal : 100,
+
+    getAtIndex : function(arr, index) {
+        console.log("Internal value : " + this.internalVal);
+        return arr[index];
+    }
+
+}
+classDef.getAtIndex.prototype.precondition = function(arr, index) {
+    return arr.length >= index;
+}
+
+classDef.getAtIndex.prototype.postcondition = function(arr, index, result) {
+    return arr.indexOf(result) === index;
+}
+var ArrayAccessor = Class.extend(classDef);
+
+
+
+var accessor = new ArrayAccessor();
+
+accessor.getAtIndex([1,2,3,4,5],1);    
+accessor.getAtIndex([1,2,3,4,5],2);    
+accessor.getAtIndex([1,2,3,4,5],3);    
+accessor.getAtIndex([1,2,3,4,5],4);    
+accessor.getAtIndex([1,2,3,4,5],5);    
+
+</script>
+
+    
+</head>
+
+<body>
+</body>
+</html>
